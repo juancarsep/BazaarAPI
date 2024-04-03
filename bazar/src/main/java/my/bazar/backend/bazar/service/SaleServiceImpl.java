@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -50,5 +51,27 @@ public class SaleServiceImpl implements ISaleService{
     public List<Product> getSaleProducts(Long id) {
         Sale sale = this.getSaleById(id);
         return sale.getProductsList();
+    }
+
+    @Override
+    public String getSaleSummary(LocalDate date) {
+        double totalAmount = 0;
+        int totalQuantity = 0;
+
+        List<Sale> sales = this.getAllSales();
+
+        for(Sale sale : sales){
+            if(sale.getSale_date() == date || sale.getSale_date().equals(date)){
+                totalQuantity++;
+                List<Product> products = sale.getProductsList();
+                for(Product product : products){
+                    totalAmount += product.getCost();
+                }
+                products = new ArrayList<>();
+            }
+        }
+        return "Sales summary for the date " + date + "\n" +
+                "Total amount: " + totalAmount + "\n" +
+                "Total quantity: " + totalQuantity;
     }
 }

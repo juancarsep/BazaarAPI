@@ -13,4 +13,5 @@ public interface ISaleService {
     public Sale editSale(Long id, LocalDate sale_date, Double total, List<Product> productsList);
     public void deleteSaleById(Long id);
     public List<Product> getSaleProducts(Long id);
+    public String getSaleSummary(LocalDate date);
 }

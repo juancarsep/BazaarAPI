@@ -49,4 +49,9 @@ public class SaleController {
     public List<Product> getSaleProduct(@PathVariable Long id){
         return saleService.getSaleProducts(id);
     }
+
+    @GetMapping("/sale/summary/{date}")
+    public String getSumary(@PathVariable LocalDate date){
+        return saleService.getSaleSummary(date);
+    }
 }
