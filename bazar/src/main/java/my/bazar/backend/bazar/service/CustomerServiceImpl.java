@@ -3,9 +3,11 @@ package my.bazar.backend.bazar.service;
 import my.bazar.backend.bazar.model.Customer;
 import my.bazar.backend.bazar.repository.ICustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CustomerServiceImpl implements ICustomerService{
 
     @Autowired
