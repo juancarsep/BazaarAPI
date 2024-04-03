@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/bazar.iml" filepath="$PROJECT_DIR$/.idea/bazar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/BazaarAPI.iml" filepath="$PROJECT_DIR$/.idea/BazaarAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bazar/bazar.iml" filepath="$PROJECT_DIR$/bazar/bazar.iml" />
     </modules>
   </component>
 </project>

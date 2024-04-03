@@ -12,7 +12,7 @@ import java.util.List;
 public class Sale {
 
     private Long sale_id;
-    private LocalDate sale_dale;
+    private LocalDate sale_date;
     private Double total;
 
     @OneToMany(mappedBy = "sale", cascade = CascadeType.ALL)
@@ -25,9 +25,9 @@ public class Sale {
     public Sale() {
     }
 
-    public Sale(Long sale_id, LocalDate sale_dale, Double total, List<Product> productsList) {
+    public Sale(Long sale_id, LocalDate sale_date, Double total, List<Product> productsList) {
         this.sale_id = sale_id;
-        this.sale_dale = sale_dale;
+        this.sale_date = sale_date;
         this.total = total;
         this.productsList = productsList;
     }
