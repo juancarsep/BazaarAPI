@@ -29,4 +29,8 @@ public class Product {
         this.cost = cost;
         this.stock = stock;
     }
+
+    public void reduceStock(){
+        this.stock--;
+    }
 }

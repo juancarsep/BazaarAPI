@@ -44,4 +44,9 @@ public class SaleController {
         saleService.deleteSaleById(id);
         return "Sale successfully deleted";
     }
+
+    @GetMapping("/sale/products/{sale_id}")
+    public List<Product> getSaleProduct(@PathVariable Long id){
+        return saleService.getSaleProducts(id);
+    }
 }

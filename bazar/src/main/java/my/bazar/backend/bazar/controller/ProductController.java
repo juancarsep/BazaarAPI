@@ -43,4 +43,9 @@ public class ProductController {
         prodService.deleteProductById(id);
         return "Product successfully deleted";
     }
+
+    @GetMapping("/product/need_restock")
+    public List<Product> needStock(){
+        return prodService.lackOfStock();
+    }
 }

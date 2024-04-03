@@ -45,4 +45,10 @@ public class SaleServiceImpl implements ISaleService{
     public void deleteSaleById(Long id) {
         saleRepo.deleteById(id);
     }
+
+    @Override
+    public List<Product> getSaleProducts(Long id) {
+        Sale sale = this.getSaleById(id);
+        return sale.getProductsList();
+    }
 }

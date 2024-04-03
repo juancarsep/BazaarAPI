@@ -10,5 +10,6 @@ public interface IProductService {
     public List<Product> getAllProducts();
     public Product editProduct(Long product_id, String name, String brand, Double cost, Double stock);
     public void deleteProductById(Long id);
+    public List<Product> lackOfStock();
 
 }
