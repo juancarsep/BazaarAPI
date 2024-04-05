@@ -1,5 +1,6 @@
 package my.bazar.backend.bazar.service;
 
+import my.bazar.backend.bazar.dto.SaleDTO;
 import my.bazar.backend.bazar.model.Product;
 import my.bazar.backend.bazar.model.Sale;
 import my.bazar.backend.bazar.repository.ISaleRepository;
@@ -74,4 +75,34 @@ public class SaleServiceImpl implements ISaleService{
                 "Total amount: " + totalAmount + "\n" +
                 "Total quantity: " + totalQuantity;
     }
+
+    @Override
+    public SaleDTO getBiggestSaleInfo() {
+        Sale biggestSale = this.findBiggestSale();
+        SaleDTO saleDto = new SaleDTO();
+        saleDto.setSale_id(biggestSale.getSale_id());
+        saleDto.setSaleTotal(biggestSale.getTotal());
+        saleDto.setCustomerName(biggestSale.getCustomer().getName());
+        saleDto.setCustomerName(biggestSale.getCustomer().getLastname());
+        saleDto.setProductQuantity(biggestSale.getProductsList().size());
+
+
+        return saleDto;
+    }
+
+    private Sale findBiggestSale(){
+        Double biggestTotal = 0.0;
+        Sale sale = null;
+        Sale biggestSale = null;
+        List<Sale> allSales = this.getAllSales();
+        for(Sale sal : allSales){
+            if(sal.getTotal() > biggestTotal){
+                biggestTotal = sal.getTotal();
+                biggestSale = sal;
+            }
+        }
+        return biggestSale;
+    }
+
+
 }

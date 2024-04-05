@@ -1,5 +1,6 @@
 package my.bazar.backend.bazar.service;
 
+import my.bazar.backend.bazar.dto.SaleDTO;
 import my.bazar.backend.bazar.model.Product;
 import my.bazar.backend.bazar.model.Sale;
 
@@ -14,4 +15,6 @@ public interface ISaleService {
     public void deleteSaleById(Long id);
     public List<Product> getSaleProducts(Long id);
     public String getSaleSummary(LocalDate date);
+
+    public SaleDTO getBiggestSaleInfo();
 }

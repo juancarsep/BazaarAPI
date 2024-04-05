@@ -1,5 +1,6 @@
 package my.bazar.backend.bazar.controller;
 
+import my.bazar.backend.bazar.dto.SaleDTO;
 import my.bazar.backend.bazar.model.Product;
 import my.bazar.backend.bazar.model.Sale;
 import my.bazar.backend.bazar.repository.ISaleRepository;
@@ -53,5 +54,10 @@ public class SaleController {
     @GetMapping("/sale/summary/{date}")
     public String getSumary(@PathVariable LocalDate date){
         return saleService.getSaleSummary(date);
+    }
+
+    @GetMapping("/sale/biggest-sale")
+    public SaleDTO getBiggestSaleInfo(){
+        return saleService.getBiggestSaleInfo();
     }
 }
