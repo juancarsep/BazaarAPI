@@ -1,9 +1,6 @@
 package my.bazar.backend.bazar.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,15 +16,22 @@ public class Product {
     private Double cost;
     private Double stock;
 
+    @ManyToOne
+    @JoinColumn(name = "sale_id")
+    private Sale sale;
+
+
     public Product() {
     }
 
-    public Product(Long product_id, String name, String brand, Double cost, Double stock) {
+    public Product(Long product_id, String name, String brand, Double cost, Double stock, Sale sale) {
         this.product_id = product_id;
         this.name = name;
         this.brand = brand;
         this.cost = cost;
         this.stock = stock;
+        this.sale = sale;
+
     }
 
     public void reduceStock(){

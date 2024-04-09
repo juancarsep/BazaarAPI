@@ -11,15 +11,17 @@ import java.util.List;
 @Getter @Setter
 public class Sale {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long sale_id;
     private LocalDate sale_date;
     private Double total;
 
-    @OneToMany(mappedBy = "sale", cascade = CascadeType.ALL)
+    @OneToMany
     private List<Product> productsList;
 
     @OneToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
     private Customer customer;
 
     public Sale() {
