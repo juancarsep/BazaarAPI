@@ -1,4 +1,3 @@
-```markdown
 # Bazar API
 
 This repository contains a RESTful API for managing a Bazar, built using Spring Boot, Hibernate, and MySQL Workbench. Postman was employed for testing HTTP requests.
